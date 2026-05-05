@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duka — Tonbrea TNM Furniture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F8F9FC', mist: '#EEF1F8',
+            navy: '#1B2A4A', royal: '#2C4A8C',
+            gold: '#C9A84C', shine: '#E8C96A', ink: '#1A1A2E',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-ink font-sans">
+
+  <!-- MENYU -->
+  <nav class="bg-navy shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-2xl font-serif font-bold text-white tracking-wide">Tonbrea</span>
+        <span class="text-xs font-bold bg-gold text-navy px-2 py-0.5 rounded-md tracking-widest">TNM</span>
+      </a>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-white/80">
+        <a href="index.html" class="hover:text-gold transition-colors">Nyumbani</a>
+        <a href="shop.html" class="text-gold border-b border-gold">Duka</a>
+        <a href="contact.html" class="hover:text-gold transition-colors">Wasiliana</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="cart.html" class="relative text-white/80 hover:text-gold transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 6h13M7 13L5.4 5M10 21a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2z"/>
+          </svg>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-navy text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-white/80">
+      <a href="index.html" class="hover:text-gold">Nyumbani</a>
+      <a href="shop.html" class="text-gold">Duka</a>
+      <a href="contact.html" class="hover:text-gold">Wasiliana</a>
+    </div>
+  </nav>
+
+  <!-- KICHWA -->
+  <div class="hero-gradient py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-gold text-xs font-semibold uppercase tracking-widest mb-2">✦ Tonbrea TNM ✦</p>
+      <h1 class="text-4xl font-serif font-bold text-white mb-2">Mkusanyiko Wetu</h1>
+      <p class="text-white/60">Gundua samani iliyotengenezwa kwa kila chumba na kila mtindo.</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-10">
+
+    <!-- KICHUJIO -->
+    <aside class="w-full md:w-60 shrink-0">
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-mist sticky top-24">
+        <h3 class="font-semibold text-navy mb-4 flex items-center gap-2">
+          <span class="w-1 h-5 bg-gold rounded-full inline-block"></span>
+          Aina za Bidhaa
+        </h3>
+        <ul class="space-y-1 text-sm" id="category-filters">
+          <li><button data-category="all" class="filter-btn w-full text-left px-3 py-2.5 rounded-xl bg-navy text-white font-semibold">Bidhaa Zote</button></li>
+          <li><button data-category="sofas" class="filter-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-mist transition-colors text-ink">🛋️ Sofa</button></li>
+          <li><button data-category="tables" class="filter-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-mist transition-colors text-ink">🪵 Meza</button></li>
+          <li><button data-category="chairs" class="filter-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-mist transition-colors text-ink">🪑 Viti</button></li>
+          <li><button data-category="beds" class="filter-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-mist transition-colors text-ink">🛏️ Vitanda</button></li>
+          <li><button data-category="storage" class="filter-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-mist transition-colors text-ink">🗄️ Hifadhi</button></li>
+        </ul>
+
+        <hr class="my-5 border-mist" />
+
+        <h3 class="font-semibold text-navy mb-3 flex items-center gap-2">
+          <span class="w-1 h-5 bg-gold rounded-full inline-block"></span>
+          Panga kwa
+        </h3>
+        <select id="sort-select" class="w-full text-sm border border-mist rounded-xl px-3 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-gold text-ink">
+          <option value="default">Maarufu</option>
+          <option value="price-asc">Bei: Chini hadi Juu</option>
+          <option value="price-desc">Bei: Juu hadi Chini</option>
+          <option value="name-asc">Jina: A–Z</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- GRIDI YA BIDHAA -->
+    <main class="flex-1">
+      <div class="mb-6 relative">
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input id="search-input" type="text" placeholder="Tafuta bidhaa..."
+          class="w-full border border-mist rounded-xl pl-11 pr-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-gold shadow-sm" />
+      </div>
+      <div id="results-count" class="text-sm text-gray-400 mb-5"></div>
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="no-results" class="hidden text-center py-20 text-gray-400">
+        <div class="text-5xl mb-4">🔍</div>
+        <p class="text-lg font-medium text-navy">Hakuna bidhaa zilizopatikana</p>
+        <p class="text-sm mt-2">Jaribu aina nyingine au neno tofauti la utafutaji.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-white py-14 mt-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <h3 class="text-xl font-serif font-bold">Tonbrea</h3>
+          <span class="text-xs font-bold bg-gold text-navy px-2 py-0.5 rounded-md tracking-widest">TNM</span>
+        </div>
+        <p class="text-white/60 text-sm">Samani inayofeel kama nyumbani.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-gold mb-4">Viungo vya Haraka</h4>
+        <ul class="space-y-2 text-sm text-white/60">
+          <li><a href="index.html" class="hover:text-gold">Nyumbani</a></li>
+          <li><a href="shop.html" class="hover:text-gold">Duka</a></li>
+          <li><a href="contact.html" class="hover:text-gold">Wasiliana</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-gold mb-4">Mawasiliano</h4>
+        <ul class="space-y-2 text-sm text-white/60">
+          <li>📧 info@tonbreafurniture.co.tz</li>
+          <li>📞 062 470 8606</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-sm text-white/30">
+      © 2026 Tonbrea TNM Furniture. Haki zote zimehifadhiwa.
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

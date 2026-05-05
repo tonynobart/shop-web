@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* ── Palette mpya ──────────────────────────────────────────
+   bg      : #F8F9FC  (white-blue nyepesi)
+   surface : #FFFFFF
+   mist    : #EEF1F8  (blue-grey nyepesi)
+   navy    : #1B2A4A  (navy giza — primary)
+   royal   : #2C4A8C  (navy ya kati — hover)
+   gold    : #C9A84C  (dhahabu — accent)
+   shine   : #E8C96A  (dhahabu nyepesi — hover)
+   ink     : #1A1A2E  (maandishi giza)
+──────────────────────────────────────────────────────────── */
+
+html { scroll-behavior: smooth; }
+
+/* Focus visible */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #EEF1F8; }
+::-webkit-scrollbar-thumb { background: #2C4A8C; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #1B2A4A; }
+
+/* Gradient ya hero */
+.hero-gradient {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2C4A8C 60%, #1B2A4A 100%);
+}
+
+/* Gradient ya gold accent */
+.gold-gradient {
+  background: linear-gradient(135deg, #C9A84C, #E8C96A);
+}
+
+/* Kadi ya bidhaa — mstari wa dhahabu juu ukiwa hover */
+.product-card:hover {
+  border-top: 3px solid #C9A84C;
+}
+
+/* Badge ya punguzo */
+.badge-sale {
+  background: linear-gradient(135deg, #C9A84C, #E8C96A);
+  color: #1B2A4A;
+  font-weight: 700;
+}
+
+/* Kitufe kikuu */
+.btn-primary {
+  background: linear-gradient(135deg, #C9A84C, #E8C96A);
+  color: #1B2A4A;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201,168,76,0.4);
+}
+
+/* Kitufe cha pili */
+.btn-outline {
+  border: 2px solid #C9A84C;
+  color: #C9A84C;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover {
+  background: #C9A84C;
+  color: #1B2A4A;
+}
+
+/* Mstari wa dhahabu chini ya kichwa */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #C9A84C, #E8C96A);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+.section-title-left::after {
+  margin: 12px 0 0;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  transition-timing-function: ease;
+  transition-duration: 150ms;
+}

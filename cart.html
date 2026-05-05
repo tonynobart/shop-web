@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kikapu — Tonbrea TNM Furniture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F8F9FC', mist: '#EEF1F8',
+            navy: '#1B2A4A', royal: '#2C4A8C',
+            gold: '#C9A84C', shine: '#E8C96A', ink: '#1A1A2E',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-ink font-sans">
+
+  <!-- MENYU -->
+  <nav class="bg-navy shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-2xl font-serif font-bold text-white tracking-wide">Tonbrea</span>
+        <span class="text-xs font-bold bg-gold text-navy px-2 py-0.5 rounded-md tracking-widest">TNM</span>
+      </a>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-white/80">
+        <a href="index.html" class="hover:text-gold transition-colors">Nyumbani</a>
+        <a href="shop.html" class="hover:text-gold transition-colors">Duka</a>
+        <a href="contact.html" class="hover:text-gold transition-colors">Wasiliana</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="cart.html" class="relative text-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 6h13M7 13L5.4 5M10 21a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2z"/>
+          </svg>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-navy text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-white/80">
+      <a href="index.html" class="hover:text-gold">Nyumbani</a>
+      <a href="shop.html" class="hover:text-gold">Duka</a>
+      <a href="contact.html" class="hover:text-gold">Wasiliana</a>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-serif font-bold text-navy mb-10">Kikapu Chako</h1>
+
+    <!-- KIKAPU TUPU -->
+    <div id="cart-empty" class="hidden text-center py-24">
+      <div class="text-6xl mb-6">🛒</div>
+      <h2 class="text-2xl font-serif font-semibold text-navy mb-3">Kikapu chako kiko tupu</h2>
+      <p class="text-gray-400 mb-8">Inaonekana bado hujaongeza chochote.</p>
+      <a href="shop.html" class="btn-primary px-8 py-3 rounded-full inline-block">Anza Kununua</a>
+    </div>
+
+    <!-- MAUDHUI YA KIKAPU -->
+    <div id="cart-content" class="flex flex-col lg:flex-row gap-10">
+      <div class="flex-1">
+        <div id="cart-items" class="space-y-4"></div>
+      </div>
+
+      <!-- Muhtasari -->
+      <div class="w-full lg:w-80 shrink-0">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-mist sticky top-24">
+          <h2 class="text-xl font-serif font-bold text-navy mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-gold rounded-full inline-block"></span>
+            Muhtasari wa Agizo
+          </h2>
+          <div class="space-y-3 text-sm mb-6">
+            <div class="flex justify-between">
+              <span class="text-gray-500">Jumla ndogo</span>
+              <span id="subtotal" class="font-semibold text-ink">TSh 0</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Usafirishaji</span>
+              <span id="shipping" class="font-semibold text-green-600">Bure</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">VAT (18%)</span>
+              <span id="tax" class="font-semibold text-ink">TSh 0</span>
+            </div>
+          </div>
+          <div class="border-t border-mist pt-4 mb-6 flex justify-between font-bold text-lg">
+            <span class="text-navy">Jumla</span>
+            <span id="total" class="text-gold">TSh 0</span>
+          </div>
+          <button id="checkout-btn" class="btn-primary w-full py-4 rounded-full text-base text-center">
+            Endelea Kulipa
+          </button>
+          <a href="shop.html" class="block text-center text-sm text-royal hover:text-gold mt-4 transition-colors">
+            ← Endelea Kununua
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALI YA MALIPO -->
+  <div id="checkout-modal" class="fixed inset-0 bg-navy/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border-t-4 border-gold">
+      <h2 class="text-2xl font-serif font-bold text-navy mb-6">Malipo</h2>
+      <form id="checkout-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold text-navy mb-1">Jina Kamili</label>
+          <input type="text" placeholder="Juma Mwangi" required class="w-full border border-mist rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-navy mb-1">Barua Pepe</label>
+          <input type="email" placeholder="juma@mfano.co.tz" required class="w-full border border-mist rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-navy mb-1">Anwani ya Uwasilishaji</label>
+          <input type="text" placeholder="Mtaa, Jiji, Mkoa" required class="w-full border border-mist rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-navy mb-1">Nambari ya Simu</label>
+          <input type="tel" placeholder="062 470 8606" class="w-full border border-mist rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold" />
+        </div>
+        <div class="flex gap-3 pt-2">
+          <button type="submit" class="flex-1 btn-primary py-3 rounded-full font-semibold">Wasilisha Agizo</button>
+          <button type="button" id="close-modal" class="flex-1 border-2 border-mist py-3 rounded-full font-medium hover:bg-mist transition-colors text-navy">Ghairi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- AGIZO LIMEFANIKIWA -->
+  <div id="order-success" class="fixed inset-0 bg-navy/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-10 max-w-sm w-full shadow-2xl text-center border-t-4 border-gold">
+      <div class="text-6xl mb-4">🎉</div>
+      <h2 class="text-2xl font-serif font-bold text-navy mb-3">Agizo Limewasilishwa!</h2>
+      <p class="text-gray-500 text-sm mb-2">Asante kwa ununuzi wako.</p>
+      <p class="text-gray-500 text-sm mb-6">Tutawasiliana nawe kwa <strong class="text-navy">062 470 8606</strong> kuthibitisha uwasilishaji.</p>
+      <a href="index.html" class="btn-primary block py-3 rounded-full font-semibold">Rudi Nyumbani</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-white py-14 mt-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <h3 class="text-xl font-serif font-bold">Tonbrea</h3>
+          <span class="text-xs font-bold bg-gold text-navy px-2 py-0.5 rounded-md tracking-widest">TNM</span>
+        </div>
+        <p class="text-white/60 text-sm">Samani inayofeel kama nyumbani.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-gold mb-4">Viungo vya Haraka</h4>
+        <ul class="space-y-2 text-sm text-white/60">
+          <li><a href="index.html" class="hover:text-gold">Nyumbani</a></li>
+          <li><a href="shop.html" class="hover:text-gold">Duka</a></li>
+          <li><a href="contact.html" class="hover:text-gold">Wasiliana</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-gold mb-4">Mawasiliano</h4>
+        <ul class="space-y-2 text-sm text-white/60">
+          <li>📧 info@tonbreafurniture.co.tz</li>
+          <li>📞 062 470 8606</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-sm text-white/30">
+      © 2026 Tonbrea TNM Furniture. Haki zote zimehifadhiwa.
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/cart-page.js"></script>
+</body>
+</html>
